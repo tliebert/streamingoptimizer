@@ -44,7 +44,7 @@ function reducerfn(prev, current, index) {
   let p1val = 22;
   let p2val = 23;
   let total = 0;
-  let calculated = current.forEach((item) => {
+  current.forEach((item) => {
     total += item === "p1" ? p1val : p2val;
   });
   console.log(total);
