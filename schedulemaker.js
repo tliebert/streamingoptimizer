@@ -56,8 +56,6 @@ function createAllSubarrays(arrayOfArrays) {
   return allCombos;
 }
 
-var fruits = ["apple", "banana", "lemon", "mango", "ugly"];
-
 // var result = fruits.flatMap((v, i) =>
 //   fruits.slice(i + 1).map((w) => v + " " + w)
 // );
@@ -92,3 +90,5 @@ var combo = function (a, min, max) {
 };
 
 console.log("combo method", combo(everyPlayer, 4, 4));
+
+module.exports = combo;

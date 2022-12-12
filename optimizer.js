@@ -1,3 +1,5 @@
+let combo = require("./schedulemaker");
+
 console.log("hello world");
 
 const p1 = [0, 1, 0, 1, 1, 0, 0];
@@ -35,24 +37,39 @@ function createCombosFromTwoPlayers(availabilityArray) {
 
 let allCombos = createCombosFromTwoPlayers(exampleAvailability);
 
-function findMaxCombo(arrayOfSchedules) {
-  let maxIndex = arrayOfSchedules.reduce(reducerfn, [0, 0]);
-  return arrayOfSchedules[maxIndex[1]];
+// function findMaxCombo(arrayOfSchedules) {
+//   let maxIndex = arrayOfSchedules.reduce(reducerfn, [0, 0]);
+//   return arrayOfSchedules[maxIndex[1]];
+// }
+
+// function reducerfn(prev, current, index) {
+//   let p1val = 22;
+//   let p2val = 23;
+//   let total = 0;
+//   current.forEach((item) => {
+//     total += item === "p1" ? p1val : p2val;
+//   });
+//   console.log(total);
+//   if (total > prev[0]) {
+//     return [total, index];
+//   }
+//   return prev;
+// }
+
+function findOptimalSchedule(allCombos) {
+    function cb(prev, current, index) {
+        current.
+    }
+
+    let result = allCombos.reduce(cb, 0)
 }
 
-function reducerfn(prev, current, index) {
-  let p1val = 22;
-  let p2val = 23;
-  let total = 0;
-  current.forEach((item) => {
-    total += item === "p1" ? p1val : p2val;
-  });
-  console.log(total);
-  if (total > prev[0]) {
-    return [total, index];
-  }
-  return prev;
+function findOptimnalComboSchedule(comboOfPlayers) {
+    
 }
+
+var fruits = ["apple", "banana", "lemon", "mango", "ugly"];
+console.log(combo(fruits, 2, 2));
 
 let answerSchedule = findMaxCombo(allCombos);
 console.log(answerSchedule);
