@@ -1,5 +1,9 @@
 // create an object keyed 1 - 7, with each value an object with a start array
 
+const exampleList = {
+  32.5: [1, 0, 0, 1, 0],
+};
+
 function createBestPlayersObject(processedList) {
   // processes a ranked list
 }
