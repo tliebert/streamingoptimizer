@@ -1,5 +1,9 @@
 // create an object keyed 1 - 7, with each value an object with a start array
 
+function createBestPlayersObject(processedList) {
+  // processes a ranked list
+}
+
 const bestPerformancesObject = {
   1: {
     0: [23, "P1"],
@@ -46,3 +50,7 @@ const bestPerformancesObject = {
 };
 
 module.exports = bestPerformancesObject;
+
+// https://api.login.yahoo.com/oauth2/request_auth?client_id=dj0yJmk9S01VTGVXRWRabDQ4JmQ9WVdrOVEyeHZTMXBEWm00bWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTY3&redirect_uri=oob&response_type=code&language=en-us
+
+// Sharing Approval code: ngmuc4e

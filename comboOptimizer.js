@@ -1,21 +1,7 @@
 let bestPlayersObject = require("./bestPlayers");
 
-// heuristics
-
-/* 
-Cutting off the larger combo: 
-If the best and second best times 7 are less than the current, cut off the ones after that. 
-
-
-For assessing an COMBO of 4 players. 
-
-This optimizes a SINGLE ROSTER SPOT, 
-
-
-*/
-
-// n is the total, x is the number you're looking for. N will normally be 7, for a whole week
-// but can be different.
+// n is the total, x is the number of adds. N will normally be 7, for a whole week
+// but can be adjusted for midweek chanages.
 
 function integerPartition(n, x) {
   // Create an empty array to store the partitions
@@ -23,14 +9,13 @@ function integerPartition(n, x) {
 
   // Check if the input values are valid
   if (n >= x && x > 0) {
-    // Create a function to generate all possible partitions
+    //generate all possible partitions
     function generatePartitions(
       currentPartition,
       remainingSum,
       remainingMembers
     ) {
-      // If the remaining sum is 0 and there are no more members left,
-      // the current partition is a valid solution
+      // If the remaining sum is 0 and there are no more members left, the current partition is valid
       if (remainingSum === 0 && remainingMembers === 0) {
         partitions.push(currentPartition);
       } else {
@@ -38,8 +23,7 @@ function integerPartition(n, x) {
         for (let i = 1; i <= remainingSum; i++) {
           // Create a new partition by adding the current number to the current partition
           const newPartition = currentPartition.concat(i);
-          // Generate all partitions using the new partition, a reduced remaining sum,
-          // and a reduced number of remaining members
+          // Generate all partitions using the new partition, a reduced remaining sum, and a reduced number of remaining members
           generatePartitions(
             newPartition,
             remainingSum - i,
@@ -49,18 +33,19 @@ function integerPartition(n, x) {
       }
     }
 
-    // Generate all partitions starting with an empty current partition, the input value of n as the remaining sum,
-    // and the input value of x as the number of remaining members
+    // Actually generate all partitions starting with an empty current partition
     generatePartitions([], n, x);
   }
 
-  // Return the generated partitions
   return partitions;
 }
 
 // console.log(integerPartition(7, 5));
 // console.log(integerPartition(7, 1));
 // console.log(integerPartition(7, 2));
+
+// generates each possible partition from given days and adds, and uses the bestDays object to calculate the optimal schedule
+// best days requires that the optimal points for each "job" already be generated (i.e. we know the max for each subarray span in the week)
 
 function calculateOptimalStreamingSlot(days, adds, bestDays) {
   const schedulesToTry = integerPartition(days, adds);

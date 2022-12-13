@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "yahoo-fantasy": "^5.1.0"
+  }
+}
