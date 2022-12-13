@@ -1,12 +1,23 @@
-// create an object keyed 1 - 7, with each value an object with a start array
+const exampleList = [
+  [32.5, [1, 0, 0, 1, 0, 1, 0], "P1"],
+  [28, [1, 0, 0, 1, 0, 1, 1], "P2"],
+  [23.4, [0, 1, 1, 0, 0, 1, 0], "P3"],
+  [24.7, [1, 0, 1, 1, 0, 0, 1], "P4"],
+  [25, [0, 1, 1, 0, 0, 0, 1], "P5"],
+];
 
-const exampleList = {
-  32.5: [1, 0, 0, 1, 0],
-};
-
-function createBestPlayersObject(processedList) {
-  // processes a ranked list
+function sortRawPlayerInfo(rawInfo) {
+  let sorted = rawInfo.sort((a, b) => {
+    a[0] > b[0];
+  });
+  return sorted;
 }
+
+console.log(sortRawPlayerInfo(exampleList));
+
+function createBestPlayersObject(processedList) {}
+
+// example object best players object returned from the processing of the array of every player
 
 const bestPerformancesObject = {
   1: {
