@@ -13,6 +13,54 @@ function sortRawPlayerInfo(rawInfo) {
   return sorted;
 }
 
+function createSubarrays(arr) {
+  const subarrays = [];
+
+  // Iterate over the original array and create subarrays of all possible lengths
+  for (let n = 1; n <= arr.length; n++) {
+    for (let i = 0; i <= arr.length - n; i++) {
+      // Get the subarray of length n starting at index i
+      const subarray = arr.slice(i, i + n);
+      // Add the subarray to the list of subarrays
+      subarrays.push(subarray);
+    }
+  }
+  return subarrays;
+}
+
+function findBestPlayer(players, subarrays) {
+  // Create an empty list to store the sums for each player
+  const sums = [];
+
+  // Iterate over the players
+  for (let player of players) {
+    // Get the points value and the subarray for the current player
+    const points = player[0];
+    const playerSubarray = player[1];
+
+    // Create a variable to store the sum for the current player
+    let sum = 0;
+
+    // Iterate over the subarrays and calculate the sum for the current player
+    for (let subarray of subarrays) {
+      for (let i = 0; i < subarray.length; i++) {
+        if (subarray[i] === 1 && playerSubarray[i] === 1) {
+          sum += points;
+        }
+      }
+    }
+
+    // Add the sum for the current player to the list of sums
+    sums.push(sum);
+  }
+
+  // Find the index of the player with the highest sum
+  const bestPlayerIndex = sums.indexOf(Math.max(...sums));
+
+  // Return the player with the highest sum
+  return players[bestPlayerIndex];
+}
+
 console.log(sortRawPlayerInfo(exampleList));
 
 function createBestPlayersObject(processedList) {}

@@ -80,5 +80,5 @@ function calculateOptimalStreamingSlot(days, adds, bestDays) {
 }
 
 // console.log(bestPlayersObject);
-let bestStreamsObject = calculateOptimalStreamingSlot(7, 1, bestPlayersObject);
+let bestStreamsObject = calculateOptimalStreamingSlot(7, 5, bestPlayersObject);
 console.log(bestStreamsObject);
